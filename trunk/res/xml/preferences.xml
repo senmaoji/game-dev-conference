@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="first_preferencescreen" >
+
+    <EditTextPreference
+        android:defaultValue="@string/player"
+        android:ellipsize="end"
+        android:key="nickname"
+        android:singleLine="true"
+        android:title="@string/nickname" />
+
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/level"
+        android:entryValues="@array/levelID"
+        android:key="difficulty"
+        android:title="@string/difficult" />
+
+</PreferenceScreen>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GameDev</string>
+    <string name="wake_lock">WAKE LOCK</string>
+    <string name="game">Game</string>
+    <string name="score">Score</string>
+    <string name="settings">Settings</string>
+    <string name="aboutme">About Me</string>
+    <string name="aboutMeText">Soy Carlos Piñan y este es el juego presentado en:\n\nGame Dev Conference Peru el 16 de junio.</string>
+    <string name="nickname">Your nickname: </string>
+    <string name="player">Player</string>
+    <string name="easy">Easy</string>
+    <string name="normal">Normal</string>
+    <string name="hard">Hard</string>
+    <string name="difficult">Select the difficult level: </string>
+    <string name="version">1.0</string>
+    <string name="finish">Finish!!!!!!!!</string>
+    <string name="finalscore">Your final score is:</string>
+    <string name="send">Send</string>
+    <string name="close">Close</string>
+    <string name="level">Level</string>
+
+</resources>
