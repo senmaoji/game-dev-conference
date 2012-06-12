@@ -7,7 +7,7 @@
     <string name="score">Score</string>
     <string name="settings">Settings</string>
     <string name="aboutme">About Me</string>
-    <string name="aboutMeText">Soy Carlos Piñan y este es el juego presentado en:\n\nGame Dev Conference Peru el 16 de junio.</string>
+    <string name="aboutMeText">Soy Carlos Piñan y este es el juego presentado en:\n\nGame Dev Conference Peru el 16 de junio.\n\nVersion 1.0</string>
     <string name="nickname">Your nickname: </string>
     <string name="player">Player</string>
     <string name="easy">Easy</string>

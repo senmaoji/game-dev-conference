@@ -45,6 +45,24 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="net.programaciondevideojuegos.game01.activities.tabs.EasyTab"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="net.programaciondevideojuegos.game01.activities.tabs.NormalTab"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="net.programaciondevideojuegos.game01.activities.tabs.HardTab"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="net.programaciondevideojuegos.game01.activities.PreferenceScene"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleInstance"

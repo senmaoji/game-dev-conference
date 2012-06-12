@@ -1,5 +1,7 @@
 package net.programaciondevideojuegos.game01.utils;
 
+import net.programaciondevideojuegos.game01.R;
+
 public class Assets {
 
 	private static final String AUDIO_PATH = "audio/";
@@ -24,20 +26,29 @@ public class Assets {
 
 	public static final int SCORE_FOR_NEXT_LEVEL = 100;
 
-	public static final String URL_SCORE = "http://carlospinan.appspot.com/";
+	public static final String URL_SCORE = "http://servicescpinan.appspot.com/";
 	public static final String PARAM_PLAYER = "player";
 	public static final String PARAM_SCORE = "score";
+	public static final String PARAM_LEVEL = "level";
 
 	/**
 	 * Asset for the game
 	 */
-	public static final String asset_background = GFX_PATH + "background.png";
-	public static final String asset_banana = GFX_PATH + "banana.png";
-	public static final String asset_hole = GFX_PATH + "hole.png";
-	public static final String asset_kart = GFX_PATH + "mario_kart.png";
-	public static final String asset_lights[] = { GFX_PATH + "light_0.png",
+
+	public static final String gfx_background = GFX_PATH + "background.png";
+	public static final String gfx_banana = GFX_PATH + "banana.png";
+	public static final String gfx_hole = GFX_PATH + "hole.png";
+	public static final String gfx_kart = GFX_PATH + "mario_kart.png";
+	public static final String gfx_lights[] = { GFX_PATH + "light_0.png",
 			GFX_PATH + "light_1.png", GFX_PATH + "light_2.png",
 			GFX_PATH + "light_3.png" };
+
+	public static final int asset_background = R.drawable.background;
+	public static final int asset_banana = R.drawable.banana;
+	public static final int asset_hole = R.drawable.hole;
+	public static final int asset_kart = R.drawable.mario_kart;
+	public static final int asset_lights[] = { R.drawable.light_0,
+			R.drawable.light_1, R.drawable.light_2, R.drawable.light_3 };
 
 	/**
 	 * 
