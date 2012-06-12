@@ -32,11 +32,6 @@ public class Util {
 	public static Bitmap decodeBitmap(Resources resource, int resourceID) {
 		Bitmap bmp = null;
 		Options options = new Options();
-		options.mCancel = false;
-		options.inSampleSize = 1;
-		options.inDither = false;
-		options.inPurgeable = true;
-		options.inJustDecodeBounds = false;
 		options.inPreferredConfig = Bitmap.Config.RGB_565;
 		bmp = BitmapFactory.decodeResource(resource, resourceID, options);
 		return bmp;
