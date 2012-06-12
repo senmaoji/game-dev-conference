@@ -69,7 +69,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="net.programaciondevideojuegos.game01.activities.AboutMeScene"
+            android:name=".activities.AboutMeScene"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
