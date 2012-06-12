@@ -47,6 +47,7 @@ public class Assets {
 	public static final int asset_banana = R.drawable.banana;
 	public static final int asset_hole = R.drawable.hole;
 	public static final int asset_kart = R.drawable.mario_kart;
+	public static final int asset_usmp = R.drawable.kart_2;
 	public static final int asset_lights[] = { R.drawable.light_0,
 			R.drawable.light_1, R.drawable.light_2, R.drawable.light_3 };
 
