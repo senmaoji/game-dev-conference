@@ -79,7 +79,8 @@ public class GameScene extends Main implements SensorEventListener {
 			switch (event.sensor.getType()) {
 			case Sensor.TYPE_ACCELEROMETER:
 				if (gameEngine2D != null && gameEngine2D.getMario() != null
-						&& gameEngine2D.getMario().isAlive()) {
+						&& gameEngine2D.getMario().isAlive()
+						&& gameEngine2D.isReady()) {
 					float vx = event.values[0] * -1;
 					float vy = event.values[1];
 
