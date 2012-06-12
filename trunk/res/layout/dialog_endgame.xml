@@ -27,7 +27,7 @@
 
         <EditText
             android:id="@+id/tvPlayer"
-            android:layout_width="wrap_content"
+            android:layout_width="100dip"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
             android:inputType="text"
@@ -49,25 +49,33 @@
             android:text="100000000000000"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/publishScore"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dip"
-            android:gravity="center_horizontal" >
+            android:layout_marginTop="10dip" >
 
             <Button
                 android:id="@+id/btnSend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="70dip"
+                android:layout_height="50dip"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
                 android:text="@string/send" />
 
             <Button
                 android:id="@+id/btnClose"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="70dip"
+                android:layout_height="50dip"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
                 android:text="@string/close" />
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

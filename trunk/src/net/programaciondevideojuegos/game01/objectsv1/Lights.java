@@ -12,7 +12,7 @@ public class Lights extends Sprite2D {
 
 	private int lights[] = null;
 	private int currentFrame = 0;
-	private byte bucle = 1, MAX_BUCLE = 16;
+	private byte bucle = 1, MAX_BUCLE = 15;
 	private Context context = null;
 
 	public Lights(Context context, int lights[]) {
@@ -42,7 +42,8 @@ public class Lights extends Sprite2D {
 				currentFrame++;
 				if (currentFrame > lights.length - 1)
 					currentFrame = 0;
-				setBitmap(Util.decodeBitmap(context.getResources(), lights[currentFrame]));
+				setBitmap(Util.decodeBitmap(context.getResources(),
+						lights[currentFrame]));
 			}
 			bucle++;
 		}

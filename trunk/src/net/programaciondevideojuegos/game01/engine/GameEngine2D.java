@@ -29,10 +29,12 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 	private Lights lights = null;
 	private long currentTime = 0;
 	private boolean isReady = false;
+	private int characterID = 0;
 
-	public GameEngine2D(Context context) {
+	public GameEngine2D(Context context, int characterID) {
 		super(context);
 		this.context = context;
+		this.characterID = characterID;
 		getHolder().addCallback(this);
 		thread = new GameThread(getHolder(), this);
 		// TODO Auto-generated constructor stub
@@ -73,14 +75,21 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 		Assets.SCORE = 0;
 		isReady = false;
 		Bitmap bmp = null;
-		bmp = Util.decodeBitmap(context.getResources(), Assets.asset_kart);
+
+		int character = Assets.asset_kart;
+		if (characterID == 1)
+			character = Assets.asset_usmp;
+
+		bmp = Util.decodeBitmap(context.getResources(), character);
+
 		mario = new Mario(bmp, (Assets.DEFAULT_WIDTH - bmp.getWidth()) / 2, 50);
 
 		bananaManager = new BananaManager(context);
 		holeManager = new HoleManager(context);
 		lights = new Lights(context, Assets.asset_lights);
 
-		background = Util.decodeBitmap(context.getResources(), Assets.asset_background);
+		background = Util.decodeBitmap(context.getResources(),
+				Assets.asset_background);
 		currentTime = System.currentTimeMillis();
 	}
 

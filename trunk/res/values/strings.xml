@@ -14,15 +14,19 @@
     <string name="normal">Normal</string>
     <string name="hard">Hard</string>
     <string name="difficult">Select the difficult level: </string>
+    <string name="character">Choose your character: </string>
     <string name="version">1.0</string>
     <string name="finish">Finish!!!!!!!!</string>
     <string name="finalscore">Your final score is:</string>
-    <string name="send">Send</string>
+    <string name="send">Publish</string>
     <string name="close">Close</string>
     <string name="level">Level</string>
     <string name="noConnection">No connection available</string>
     <string name="uploadingScore">Your score is sending.</string>
     <string name="scoreSubmitted">Score submitted.</string>
     <string name="cancelScore">Score submition has been cancelled.</string>
+    <string name="playerMario">Mario Kart</string>
+    <string name="playerUSMP">USMP Kart</string>
+    <string name="publishScore">Publish score?</string>
 
 </resources>
