@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -34,6 +35,20 @@ public class Util {
 		Options options = new Options();
 		options.inPreferredConfig = Bitmap.Config.RGB_565;
 		bmp = BitmapFactory.decodeResource(resource, resourceID, options);
+		return bmp;
+	}
+
+	public static Bitmap decodeBitmap(Context context, String resource) {
+		AssetManager am = context.getAssets();
+		Bitmap bmp = null;
+		Options options = new Options();
+		options.inPreferredConfig = Bitmap.Config.RGB_565;
+		try {
+			bmp = BitmapFactory.decodeStream(am.open(resource), null, options);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return bmp;
 	}
 

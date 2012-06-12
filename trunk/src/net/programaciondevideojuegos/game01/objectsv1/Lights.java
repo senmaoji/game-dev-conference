@@ -10,13 +10,13 @@ import android.graphics.Paint;
 
 public class Lights extends Sprite2D {
 
-	private int lights[] = null;
+	private String lights[] = null;
 	private int currentFrame = 0;
 	private byte bucle = 1, MAX_BUCLE = 5;
 	private Context context = null;
 
-	public Lights(Context context, int lights[]) {
-		super(Util.decodeBitmap(context.getResources(), lights[0]), 0, 0);
+	public Lights(Context context, String lights[]) {
+		super(Util.decodeBitmap(context, lights[0]), 0, 0);
 		setPosition((Assets.DEFAULT_WIDTH - getWidth()) / 2,
 				Assets.DEFAULT_HEIGHT - getHeight() * 1.2f);
 		// TODO Auto-generated constructor stub
@@ -42,8 +42,7 @@ public class Lights extends Sprite2D {
 				currentFrame++;
 				if (currentFrame > lights.length - 1)
 					currentFrame = 0;
-				setBitmap(Util.decodeBitmap(context.getResources(),
-						lights[currentFrame]));
+				setBitmap(Util.decodeBitmap(context, lights[currentFrame]));
 			}
 			bucle++;
 		}
