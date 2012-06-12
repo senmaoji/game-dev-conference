@@ -32,7 +32,7 @@ public class GameScene extends Main implements SensorEventListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		gameEngine2D = new GameEngine2D(this);
+		// gameEngine2D = new GameEngine2D(this);
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		createDialog();
