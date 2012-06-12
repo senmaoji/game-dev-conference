@@ -23,7 +23,7 @@ public class Assets {
 
 	public static String LEVEL;
 
-	public static final int SCORE_FOR_NEXT_LEVEL = 500;
+	public static final int SCORE_FOR_NEXT_LEVEL = 250;
 
 	public static final String URL_SCORE = "http://carlospinan.appspot.com/";
 	public static final String PARAM_PLAYER = "player";

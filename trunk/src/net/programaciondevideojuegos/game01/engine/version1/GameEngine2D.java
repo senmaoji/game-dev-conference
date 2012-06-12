@@ -116,8 +116,7 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 	public void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		super.onDraw(canvas);
-
-		canvas.save();
+		canvas.drawColor(0xFF000000);
 		canvas.scale(Assets.SCALEX, Assets.SCALEY);
 
 		if (background != null)
@@ -148,7 +147,6 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 		canvas.drawText(context.getResources().getString(R.string.level) + ": "
 				+ Assets.LEVEL, 10, 35, paintRect);
 		// ############################################
-		canvas.restore();
 	}
 
 	public void releaseMemory() {

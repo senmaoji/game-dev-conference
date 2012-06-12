@@ -5,6 +5,7 @@ import net.programaciondevideojuegos.game01.R;
 import net.programaciondevideojuegos.game01.utils.Assets;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
@@ -27,6 +28,9 @@ public class SplashScene extends Main {
 
 		Assets.SCALEY = (float) display.getHeight()
 				/ (float) Assets.DEFAULT_HEIGHT;
+
+		Log.d("Size: ", display.getWidth() + " ; " + display.getHeight());
+		Log.d("Scale: ", Assets.SCALEX + " ; " + Assets.SCALEY);
 
 		ImageView imgSplash = (ImageView) findViewById(R.id.imgSplash);
 		Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),
