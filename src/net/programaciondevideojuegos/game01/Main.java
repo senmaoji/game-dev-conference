@@ -13,6 +13,7 @@ import android.preference.PreferenceManager;
 import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class Main extends Activity {
 
@@ -74,6 +75,10 @@ public class Main extends Activity {
 			if (wakeLock != null)
 				wakeLock.acquire();
 		}
+	}
+
+	public static void makeToast(Context context, String text) {
+		Toast.makeText(context, text, Toast.LENGTH_LONG).show();
 	}
 
 	@Override

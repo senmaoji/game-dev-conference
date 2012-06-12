@@ -20,5 +20,9 @@
     <string name="send">Send</string>
     <string name="close">Close</string>
     <string name="level">Level</string>
+    <string name="noConnection">No connection available</string>
+    <string name="uploadingScore">Your score is sending.</string>
+    <string name="scoreSubmitted">Score submitted.</string>
+    <string name="cancelScore">Score submition has been cancelled.</string>
 
 </resources>
