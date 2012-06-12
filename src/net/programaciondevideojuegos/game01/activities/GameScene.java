@@ -183,12 +183,15 @@ public class GameScene extends Main implements SensorEventListener {
 		dialog.setContentView(view);
 		dialog.setCancelable(false);
 
-		View btnSend = view.findViewById(R.id.btnSend);
+		final View btnSend = view.findViewById(R.id.btnSend);
+		final View btnClose = view.findViewById(R.id.btnClose);
+
 		btnSend.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View clicked) {
 				if (gameEngine2D != null && gameEngine2D.getThread() != null) {
 					if (Util.isNetworkAvailable(GameScene.this)) {
+						btnSend.setEnabled(false);
 						UploadScoreTask task = new UploadScoreTask(
 								GameScene.this, sharedPrefs.getString(
 										"nickname",
@@ -203,7 +206,6 @@ public class GameScene extends Main implements SensorEventListener {
 			}
 		});
 
-		View btnClose = view.findViewById(R.id.btnClose);
 		btnClose.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View clicked) {
