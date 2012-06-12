@@ -3,8 +3,10 @@ package net.programaciondevideojuegos.game01.activities;
 import net.programaciondevideojuegos.game01.Main;
 import net.programaciondevideojuegos.game01.R;
 import net.programaciondevideojuegos.game01.engine.version1.GameEngine2D;
+import net.programaciondevideojuegos.game01.task.UploadScoreTask;
 import net.programaciondevideojuegos.game01.utils.Assets;
 import net.programaciondevideojuegos.game01.utils.SoundManager;
+import net.programaciondevideojuegos.game01.utils.Util;
 import android.app.Dialog;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -186,7 +188,17 @@ public class GameScene extends Main implements SensorEventListener {
 			@Override
 			public void onClick(View clicked) {
 				if (gameEngine2D != null && gameEngine2D.getThread() != null) {
-
+					if (Util.isNetworkAvailable(GameScene.this)) {
+						UploadScoreTask task = new UploadScoreTask(
+								GameScene.this, sharedPrefs.getString(
+										"nickname",
+										getResources().getString(
+												R.string.player)));
+						task.execute();
+					} else {
+						makeToast(GameScene.this,
+								getResources().getString(R.string.noConnection));
+					}
 				}
 			}
 		});
