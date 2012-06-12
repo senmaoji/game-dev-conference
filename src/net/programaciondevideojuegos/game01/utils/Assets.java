@@ -1,6 +1,5 @@
 package net.programaciondevideojuegos.game01.utils;
 
-
 public class Assets {
 
 	private static final String AUDIO_PATH = "audio/";
@@ -23,7 +22,7 @@ public class Assets {
 
 	public static String LEVEL;
 
-	public static final int SCORE_FOR_NEXT_LEVEL = 250;
+	public static final int SCORE_FOR_NEXT_LEVEL = 100;
 
 	public static final String URL_SCORE = "http://carlospinan.appspot.com/";
 	public static final String PARAM_PLAYER = "player";

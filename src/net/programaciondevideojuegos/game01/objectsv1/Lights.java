@@ -12,13 +12,13 @@ public class Lights extends Sprite2D {
 
 	private String lights[] = null;
 	private int currentFrame = 0;
-	private byte bucle = 1, MAX_BUCLE = 5;
+	private byte bucle = 1, MAX_BUCLE = 16;
 	private Context context = null;
 
 	public Lights(Context context, String lights[]) {
 		super(Util.decodeBitmap(context, lights[0]), 0, 0);
 		setPosition((Assets.DEFAULT_WIDTH - getWidth()) / 2,
-				Assets.DEFAULT_HEIGHT - getHeight() * 1.2f);
+				(Assets.DEFAULT_HEIGHT - getHeight()) / 2);
 		// TODO Auto-generated constructor stub
 		this.lights = lights;
 		this.context = context;
