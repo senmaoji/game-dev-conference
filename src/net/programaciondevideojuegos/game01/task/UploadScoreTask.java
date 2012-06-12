@@ -6,7 +6,6 @@ import net.programaciondevideojuegos.game01.utils.Assets;
 import net.programaciondevideojuegos.game01.utils.Util;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 public class UploadScoreTask extends AsyncTask<Void, Void, String> {
 
@@ -22,7 +21,6 @@ public class UploadScoreTask extends AsyncTask<Void, Void, String> {
 		values[0] = player;
 		values[1] = Assets.SCORE + "";
 		values[2] = level;
-		Log.d("url: ", url);
 	}
 
 	@Override

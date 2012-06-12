@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class GameScene extends Main implements SensorEventListener {
@@ -146,11 +147,9 @@ public class GameScene extends Main implements SensorEventListener {
 
 			TextView tv = null;
 
-			tv = (TextView) dialog.findViewById(R.id.tvPlayer);
-			tv.setText(getResources().getString(R.string.player)
-					+ ": "
-					+ sharedPrefs.getString("nickname", getResources()
-							.getString(R.string.player)));
+			tv = (EditText) dialog.findViewById(R.id.tvPlayer);
+			tv.setText(sharedPrefs.getString("nickname", getResources()
+					.getString(R.string.player)));
 
 			tv = (TextView) dialog.findViewById(R.id.tvScore);
 			tv.setText(Assets.SCORE + "");
@@ -194,11 +193,14 @@ public class GameScene extends Main implements SensorEventListener {
 				if (gameEngine2D != null && gameEngine2D.getThread() != null) {
 					if (Util.isNetworkAvailable(GameScene.this)) {
 						btnSend.setEnabled(false);
+						EditText tv = (EditText) dialog
+								.findViewById(R.id.tvPlayer);
+						String player = tv.getText().toString().trim();
+						if (player.length() == 0) {
+							player = getResources().getString(R.string.player);
+						}
 						UploadScoreTask task = new UploadScoreTask(
-								GameScene.this, sharedPrefs.getString(
-										"nickname",
-										getResources().getString(
-												R.string.player)), level + "");
+								GameScene.this, player, level + "");
 						task.execute();
 					} else {
 						makeToast(GameScene.this,

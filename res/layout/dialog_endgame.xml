@@ -25,11 +25,13 @@
             android:text="@string/finish"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
+        <EditText
             android:id="@+id/tvPlayer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
+            android:inputType="text"
+            android:maxLength="18"
             android:text="@string/player"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
