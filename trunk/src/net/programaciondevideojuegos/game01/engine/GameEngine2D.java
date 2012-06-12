@@ -1,4 +1,4 @@
-package net.programaciondevideojuegos.game01.engine.version1;
+package net.programaciondevideojuegos.game01.engine;
 
 import net.programaciondevideojuegos.game01.R;
 import net.programaciondevideojuegos.game01.activities.GameScene;
@@ -73,14 +73,14 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 		Assets.SCORE = 0;
 		isReady = false;
 		Bitmap bmp = null;
-		bmp = Util.decodeBitmap(context, Assets.asset_kart);
+		bmp = Util.decodeBitmap(context.getResources(), Assets.asset_kart);
 		mario = new Mario(bmp, (Assets.DEFAULT_WIDTH - bmp.getWidth()) / 2, 50);
 
 		bananaManager = new BananaManager(context);
 		holeManager = new HoleManager(context);
 		lights = new Lights(context, Assets.asset_lights);
 
-		background = Util.decodeBitmap(context, Assets.asset_background);
+		background = Util.decodeBitmap(context.getResources(), Assets.asset_background);
 		currentTime = System.currentTimeMillis();
 	}
 

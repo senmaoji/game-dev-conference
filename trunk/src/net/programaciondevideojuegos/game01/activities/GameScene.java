@@ -2,7 +2,7 @@ package net.programaciondevideojuegos.game01.activities;
 
 import net.programaciondevideojuegos.game01.Main;
 import net.programaciondevideojuegos.game01.R;
-import net.programaciondevideojuegos.game01.engine.version1.GameEngine2D;
+import net.programaciondevideojuegos.game01.engine.GameEngine2D;
 import net.programaciondevideojuegos.game01.task.UploadScoreTask;
 import net.programaciondevideojuegos.game01.utils.Assets;
 import net.programaciondevideojuegos.game01.utils.SoundManager;
@@ -25,6 +25,7 @@ public class GameScene extends Main implements SensorEventListener {
 	private GameEngine2D gameEngine2D = null;
 	private SensorManager sensorManager = null;
 	private Dialog dialog = null;
+	private int level = -1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class GameScene extends Main implements SensorEventListener {
 	}
 
 	private void loadLevel() {
-		int level = Integer.parseInt(sharedPrefs.getString("difficulty", "0"));
+		level = Integer.parseInt(sharedPrefs.getString("difficulty", "0"));
 		switch (level) {
 		case 0:
 			Assets.LEVEL = getResources().getString(R.string.easy);
@@ -65,6 +66,7 @@ public class GameScene extends Main implements SensorEventListener {
 			Assets.HOLE_INTERVAL = 3;
 			break;
 		default:
+			level = 0;
 		}
 	}
 
@@ -196,7 +198,7 @@ public class GameScene extends Main implements SensorEventListener {
 								GameScene.this, sharedPrefs.getString(
 										"nickname",
 										getResources().getString(
-												R.string.player)));
+												R.string.player)), level + "");
 						task.execute();
 					} else {
 						makeToast(GameScene.this,
