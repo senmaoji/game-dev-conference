@@ -37,6 +37,7 @@ public class GameScene extends Main implements SensorEventListener {
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		createDialog();
 		loadLevel();
+		gameEngine2D = new GameEngine2D(this);
 		setContentView(gameEngine2D);
 		SoundManager.playBackgroundMusic(getApplicationContext(),
 				Assets.sound_background);
