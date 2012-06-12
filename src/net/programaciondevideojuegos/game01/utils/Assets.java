@@ -1,10 +1,10 @@
 package net.programaciondevideojuegos.game01.utils;
 
-import net.programaciondevideojuegos.game01.R;
 
 public class Assets {
 
 	private static final String AUDIO_PATH = "audio/";
+	private static final String GFX_PATH = "gfx/";
 
 	public static final int DEFAULT_WIDTH = 320;
 	public static final int DEFAULT_HEIGHT = 480;
@@ -32,12 +32,13 @@ public class Assets {
 	/**
 	 * Asset for the game
 	 */
-	public static final int asset_background = R.drawable.background;
-	public static final int asset_banana = R.drawable.banana;
-	public static final int asset_hole = R.drawable.hole;
-	public static final int asset_kart = R.drawable.mario_kart;
-	public static final int asset_lights[] = { R.drawable.light_0,
-			R.drawable.light_1, R.drawable.light_2, R.drawable.light_3 };
+	public static final String asset_background = GFX_PATH + "background.png";
+	public static final String asset_banana = GFX_PATH + "banana.png";
+	public static final String asset_hole = GFX_PATH + "hole.png";
+	public static final String asset_kart = GFX_PATH + "mario_kart.png";
+	public static final String asset_lights[] = { GFX_PATH + "light_0.png",
+			GFX_PATH + "light_1.png", GFX_PATH + "light_2.png",
+			GFX_PATH + "light_3.png" };
 
 	/**
 	 * 

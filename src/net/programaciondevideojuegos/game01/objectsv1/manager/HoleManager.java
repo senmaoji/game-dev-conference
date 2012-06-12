@@ -22,8 +22,7 @@ public class HoleManager {
 		listHoles = new ArrayList<Hole>();
 		speed = Assets.HOLE_SPEED;
 		intervalHoles = Assets.HOLE_INTERVAL;
-		Bitmap bmp = Util.decodeBitmap(context.getResources(),
-				Assets.asset_hole);
+		Bitmap bmp = Util.decodeBitmap(context, Assets.asset_hole);
 		for (int i = 0; i < Assets.MAX_HOLES; i++) {
 			posX = Util.getRandomNumber(0,
 					Assets.DEFAULT_WIDTH - bmp.getWidth());

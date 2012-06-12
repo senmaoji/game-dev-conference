@@ -22,8 +22,7 @@ public class BananaManager {
 		listBananas = new ArrayList<Banana>();
 		speed = Assets.BANANA_SPEED;
 		intervalBananas = Assets.BANANA_INTERVAL;
-		Bitmap bmp = Util.decodeBitmap(context.getResources(),
-				Assets.asset_banana);
+		Bitmap bmp = Util.decodeBitmap(context, Assets.asset_banana);
 		for (int i = 0; i < Assets.MAX_BANANAS; i++) {
 			posX = Util.getRandomNumber(0,
 					Assets.DEFAULT_WIDTH - bmp.getWidth());

@@ -69,15 +69,14 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 	private void _startGame() {
 		Assets.SCORE = 0;
 		Bitmap bmp = null;
-		bmp = Util.decodeBitmap(context.getResources(), Assets.asset_kart);
+		bmp = Util.decodeBitmap(context, Assets.asset_kart);
 		mario = new Mario(bmp, (Assets.DEFAULT_WIDTH - bmp.getWidth()) / 2, 0);
 
 		bananaManager = new BananaManager(context);
 		holeManager = new HoleManager(context);
 		lights = new Lights(context, Assets.asset_lights);
 
-		background = Util.decodeBitmap(context.getResources(),
-				Assets.asset_background);
+		background = Util.decodeBitmap(context, Assets.asset_background);
 	}
 
 	public void update() {
