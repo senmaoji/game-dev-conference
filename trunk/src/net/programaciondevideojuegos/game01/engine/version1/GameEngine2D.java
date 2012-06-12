@@ -88,6 +88,7 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 
 		if (!isReady && currentTime > 0
 				&& System.currentTimeMillis() - currentTime > START_IN) {
+			((GameScene) context).startVibration(250);
 			isReady = true;
 		}
 
