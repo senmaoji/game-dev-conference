@@ -50,23 +50,23 @@ public class GameScene extends Main implements SensorEventListener {
 		case 0:
 			Assets.LEVEL = getResources().getString(R.string.easy);
 			Assets.BANANA_SPEED = 2;
-			Assets.BANANA_INTERVAL = 10;
+			Assets.BANANA_INTERVAL = 12;
 			Assets.HOLE_SPEED = 1;
-			Assets.HOLE_INTERVAL = 8;
+			Assets.HOLE_INTERVAL = 10;
 			break;
 		case 1:
 			Assets.LEVEL = getResources().getString(R.string.normal);
 			Assets.BANANA_SPEED = 3;
-			Assets.BANANA_INTERVAL = 8;
+			Assets.BANANA_INTERVAL = 11;
 			Assets.HOLE_SPEED = 2;
-			Assets.HOLE_INTERVAL = 6;
+			Assets.HOLE_INTERVAL = 9;
 			break;
 		case 2:
 			Assets.LEVEL = getResources().getString(R.string.hard);
 			Assets.BANANA_SPEED = 4;
-			Assets.BANANA_INTERVAL = 6;
+			Assets.BANANA_INTERVAL = 10;
 			Assets.HOLE_SPEED = 3;
-			Assets.HOLE_INTERVAL = 6;
+			Assets.HOLE_INTERVAL = 8;
 			break;
 		default:
 			level = 0;

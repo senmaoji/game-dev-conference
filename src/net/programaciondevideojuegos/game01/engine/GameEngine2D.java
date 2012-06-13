@@ -121,11 +121,12 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 
 			if (Assets.SCORE % Assets.SCORE_FOR_NEXT_LEVEL == 0
 					&& bananaManager != null && holeManager != null
-					&& trackManager != null) {
+					&& trackManager != null && turtle != null) {
 				Assets.SCORE++;
 				bananaManager.incrementSpeed();
 				holeManager.incrementSpeed();
 				trackManager.incrementSpeed();
+				turtle.incrementSpeed();
 			}
 
 			if (bucle % MAX_BUCLE == 0 && mario != null) {

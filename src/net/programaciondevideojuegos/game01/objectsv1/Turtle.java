@@ -16,8 +16,8 @@ public class Turtle {
 	private boolean isTurtleInAction = false;
 	private byte turtleInAction = 1; // 0 = greenTurtle; 1 = Red turtle is
 										// Cyclic
-	private final int speedGreenY = -7, speedRedY = -4;
-	private int speedX = 10;
+	private int speedGreenY = -5, speedRedY = -2;
+	private int speedX = 7;
 	private Context context = null;
 
 	public Turtle(Context context) {
@@ -100,6 +100,12 @@ public class Turtle {
 				return true;
 		}
 		return false;
+	}
+
+	public void incrementSpeed() {
+		speedGreenY--;
+		speedRedY--;
+		speedX++;
 	}
 
 }

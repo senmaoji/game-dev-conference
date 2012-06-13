@@ -12,7 +12,7 @@ public class Player extends Sprite2D {
 
 	private boolean isAlive;
 	private Bitmap bmpSmoke = null;
-	private int currentAlpha = 0, incAlpha = 10;
+	private int currentAlpha = 0, incAlpha = 35;
 
 	public Player(Bitmap bitmap, float x, float y, Context context) {
 		super(bitmap, x, y);
@@ -43,17 +43,17 @@ public class Player extends Sprite2D {
 		// TODO Auto-generated method stub
 
 		if (bmpSmoke != null && isAlive) {
-			int bmpX = (int) (getX() - getWidth() * 0.3);
-			int bmpY = (int) (getY() - getHeight() * 0.4);
+			int bmpX = (int) (getX() - getWidth() * 0.4);
+			int bmpY = (int) (getY() - getHeight() * 0.5);
 
 			Paint paintSmoke = new Paint();
 			currentAlpha = currentAlpha + incAlpha;
 			if (currentAlpha > 255) {
 				currentAlpha = 255;
-				incAlpha = -10;
+				incAlpha = -35;
 			} else if (currentAlpha < 0) {
 				currentAlpha = 0;
-				incAlpha = 10;
+				incAlpha = 35;
 			}
 			paintSmoke.setAlpha(currentAlpha);
 			canvas.drawBitmap(bmpSmoke, bmpX, bmpY, paintSmoke);
