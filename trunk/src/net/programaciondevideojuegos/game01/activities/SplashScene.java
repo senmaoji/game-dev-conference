@@ -34,7 +34,7 @@ public class SplashScene extends Main {
 
 		ImageView imgSplash = (ImageView) findViewById(R.id.imgSplash);
 		Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),
-				R.anim.fade_out);
+				R.anim.fade_in);
 		imgSplash.setAnimation(anim);
 
 		anim.setAnimationListener(new AnimationListener() {
