@@ -67,4 +67,11 @@ public class MenuScene extends Main {
 
 	}
 
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		killProcess();
+	}
+
 }
