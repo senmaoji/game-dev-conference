@@ -48,6 +48,9 @@ public class Assets {
 	public static final int asset_hole = R.drawable.hole;
 	public static final int asset_kart = R.drawable.mario_kart;
 	public static final int asset_usmp = R.drawable.kart_2;
+	public static final int asset_green_turtle = R.drawable.green;
+	public static final int asset_red_turtle = R.drawable.red;
+	public static final int asset_smoke = R.drawable.smoke;
 	public static final int asset_lights[] = { R.drawable.light_0,
 			R.drawable.light_1, R.drawable.light_2, R.drawable.light_3 };
 
@@ -57,4 +60,6 @@ public class Assets {
 
 	public static final String sound_background = AUDIO_PATH + "smwwd2.mid";
 	public static final String sound_gameover = AUDIO_PATH + "game_over.mp3";
+	public static final String sound_startgame = AUDIO_PATH + "smb_coin.mp3";
+	public static final String sound_hit = AUDIO_PATH + "smb_kick.mp3";
 }

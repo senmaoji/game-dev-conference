@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.programaciondevideojuegos.game01.objectsv1.Hole;
-import net.programaciondevideojuegos.game01.objectsv1.Mario;
+import net.programaciondevideojuegos.game01.objectsv1.Player;
 import net.programaciondevideojuegos.game01.utils.Assets;
 import net.programaciondevideojuegos.game01.utils.Util;
 import android.content.Context;
@@ -24,9 +24,12 @@ public class HoleManager {
 		intervalHoles = Assets.HOLE_INTERVAL;
 		Bitmap bmp = Util.decodeBitmap(context.getResources(),
 				Assets.asset_hole);
+
+		posX = Util.getRandomNumber(0, Assets.DEFAULT_WIDTH - bmp.getWidth());
+
 		for (int i = 0; i < Assets.MAX_HOLES; i++) {
-			posX = Util.getRandomNumber(0,
-					Assets.DEFAULT_WIDTH - bmp.getWidth());
+			if (i > 0)
+				setNewXPosition(i - 1);
 			Hole hole = new Hole(bmp, posX, posY);
 			posY += bmp.getHeight() * intervalHoles;
 			listHoles.add(hole);
@@ -47,27 +50,39 @@ public class HoleManager {
 			for (int i = 0; i < listHoles.size(); i++) {
 				listHoles.get(i).move(0, -speed);
 				if (listHoles.get(i).getY() < -listHoles.get(i).getHeight()) {
-					float lastY = getYHoleInMap()
+					int last = getLastHoleInMap();
+					float lastY = listHoles.get(last).getY()
 							+ listHoles.get(i).getHeight() * intervalHoles;
-					listHoles.get(i).setX(
-							Util.getRandomNumber(0, Assets.DEFAULT_WIDTH
-									- listHoles.get(i).getWidth()));
+					setNewXPosition(last);
+					listHoles.get(i).setX(posX);
 					listHoles.get(i).setY(lastY);
 				}
 			}
 		}
 	}
 
-	private float getYHoleInMap() {
+	private int getLastHoleInMap() {
+		int search = -1;
 		if (listHoles != null && !listHoles.isEmpty()) {
 			float max = 0;
 			for (int i = 0; i < listHoles.size(); i++) {
-				if (listHoles.get(i).getY() > max)
+				if (listHoles.get(i).getY() > max) {
 					max = listHoles.get(i).getY();
+					search = i;
+				}
 			}
-			return max;
 		}
-		return 0.0f;
+		return search;
+	}
+
+	private void setNewXPosition(int n) {
+		if (listHoles.get(n).getX() + listHoles.get(n).getWidth() / 2 < Assets.DEFAULT_WIDTH / 2) {
+			posX = Util.getRandomNumber(Assets.DEFAULT_WIDTH / 2
+					+ listHoles.get(n).getWidth(), Assets.DEFAULT_WIDTH
+					- listHoles.get(n).getWidth());
+		} else {
+			posX = Util.getRandomNumber(0, Assets.DEFAULT_WIDTH / 2);
+		}
 	}
 
 	public void clear() {
@@ -76,7 +91,7 @@ public class HoleManager {
 		listHoles = null;
 	}
 
-	public boolean collidesWithMario(Mario mario) {
+	public boolean collidesWithMario(Player mario) {
 		if (listHoles != null && !listHoles.isEmpty()) {
 			for (int i = 0; i < listHoles.size(); i++) {
 				if (listHoles.get(i).isCollide(mario)) {

@@ -142,7 +142,7 @@ public class GameScene extends Main implements SensorEventListener {
 
 	public void runDialog() {
 		if (dialog != null) {
-			SoundManager.releaseMusic();
+			SoundManager.releaseSounds();
 			SoundManager
 					.playSFX(getApplicationContext(), Assets.sound_gameover);
 			startVibration(500);
