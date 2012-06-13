@@ -38,7 +38,13 @@ public class Assets {
 	public static final String gfx_background = GFX_PATH + "background.png";
 	public static final String gfx_banana = GFX_PATH + "banana.png";
 	public static final String gfx_hole = GFX_PATH + "hole.png";
+	public static final String gfx_rock = GFX_PATH + "rock.png";
 	public static final String gfx_kart = GFX_PATH + "mario_kart.png";
+	public static final String gfx_yoshi = GFX_PATH + "kart_2.png";
+	public static final String gfx_usmp = GFX_PATH + "usmp_bros.png";
+	public static final String gfx_green_turtle = GFX_PATH + "green.png";
+	public static final String gfx_red_turtle = GFX_PATH + "red.png";
+	public static final String gfx_smoke = GFX_PATH + "smoke.png";
 	public static final String gfx_lights[] = { GFX_PATH + "light_0.png",
 			GFX_PATH + "light_1.png", GFX_PATH + "light_2.png",
 			GFX_PATH + "light_3.png" };
@@ -46,6 +52,7 @@ public class Assets {
 	public static final int asset_background = R.drawable.background;
 	public static final int asset_banana = R.drawable.banana;
 	public static final int asset_hole = R.drawable.hole;
+	public static final int asset_rock = R.drawable.rock;
 	public static final int asset_kart = R.drawable.mario_kart;
 	public static final int asset_yoshi = R.drawable.kart_2;
 	public static final int asset_usmp = R.drawable.usmp_bros;

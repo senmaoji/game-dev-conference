@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 
 public class Player extends Sprite2D {
 
@@ -60,6 +61,21 @@ public class Player extends Sprite2D {
 		}
 
 		super.onDraw(canvas, paint);
+		/*
+		 * Paint p = new Paint(); p.setARGB(128, 0, 255, 0);
+		 * canvas.drawRect(getBounds(), p);
+		 */
+	}
+
+	@Override
+	public RectF getBounds() {
+		// TODO Auto-generated method stub
+		RectF rectPlayer = new RectF();
+		rectPlayer.left = getX() + getWidth() * 0.2f;
+		rectPlayer.right = rectPlayer.left + getWidth() * 0.6f;
+		rectPlayer.top = getY() + getHeight() * 0.2f;
+		rectPlayer.bottom = rectPlayer.top + getHeight() * 0.6f;
+		return rectPlayer;
 	}
 
 	public boolean isAlive() {
