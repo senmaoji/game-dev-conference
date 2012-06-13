@@ -106,4 +106,8 @@ public class RockManager {
 		speed++;
 	}
 
+	public List<Rock> getListRocks() {
+		return listRocks;
+	}
+
 }
