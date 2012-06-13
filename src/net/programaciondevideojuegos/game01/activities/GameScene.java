@@ -107,6 +107,11 @@ public class GameScene extends Main implements SensorEventListener {
 		// TODO Auto-generated method stub
 		super.onWindowFocusChanged(hasFocus);
 		if (hasFocus) {
+			if (gameEngine2D != null) {
+				if (gameEngine2D.getThread() != null) {
+					gameEngine2D.getThread().setPause(false);
+				}
+			}
 			if (sensorManager != null)
 				sensorManager.registerListener(this, sensorManager
 						.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
@@ -119,6 +124,11 @@ public class GameScene extends Main implements SensorEventListener {
 		// TODO Auto-generated method stub
 		super.onPause();
 		_stopSensor();
+		if (gameEngine2D != null) {
+			if (gameEngine2D.getThread() != null) {
+				gameEngine2D.getThread().setPause(true);
+			}
+		}
 	}
 
 	@Override
