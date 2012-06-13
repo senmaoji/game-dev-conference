@@ -26,6 +26,7 @@
     <string name="scoreSubmitted">Score submitted.</string>
     <string name="cancelScore">Score submition has been cancelled.</string>
     <string name="playerMario">Mario Kart</string>
+    <string name="playerYoshi">Yoshi Kart</string>
     <string name="playerUSMP">USMP Kart</string>
     <string name="publishScore">Publish score?</string>
 

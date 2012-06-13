@@ -83,6 +83,8 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 
 		int character = Assets.asset_kart;
 		if (characterID == 1)
+			character = Assets.asset_yoshi;
+		else if (characterID == 2)
 			character = Assets.asset_usmp;
 
 		bmp = Util.decodeBitmap(context.getResources(), character);
