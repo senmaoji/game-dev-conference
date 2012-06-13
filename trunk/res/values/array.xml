@@ -13,11 +13,13 @@
     </string-array>
     <string-array name="character">
         <item>@string/playerMario</item>
+        <item>@string/playerYoshi</item>
         <item>@string/playerUSMP</item>
     </string-array>
     <string-array name="characterID">
         <item>0</item>
         <item>1</item>
+        <item>2</item>
     </string-array>
 
 </resources>
