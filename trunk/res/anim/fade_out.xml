@@ -3,13 +3,8 @@
     android:shareInterpolator="false" >
 
     <alpha
-        android:duration="4000"
+        android:duration="3000"
         android:fromAlpha="1.0"
         android:toAlpha="0.0" />
-
-    <rotate
-        android:duration="1000"
-        android:fromDegrees="0"
-        android:toDegrees="360" />
 
 </set>

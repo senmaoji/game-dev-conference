@@ -12,7 +12,7 @@ public class TrackManager {
 	private int speed;
 
 	public TrackManager() {
-		speed = Assets.BANANA_SPEED;
+		speed = Assets.HOLE_SPEED;
 		float x = (Assets.DEFAULT_WIDTH - width) / 2;
 		float y = 50;
 		for (int i = 0; i < tracks.length; i++) {
