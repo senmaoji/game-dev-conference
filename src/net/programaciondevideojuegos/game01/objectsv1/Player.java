@@ -43,8 +43,8 @@ public class Player extends Sprite2D {
 		// TODO Auto-generated method stub
 
 		if (bmpSmoke != null && isAlive) {
-			int bmpX = (int) (getX() - getWidth() * 0.4);
-			int bmpY = (int) (getY() - getHeight() * 0.5);
+			int bmpX = (int) (getX() - bmpSmoke.getWidth() * 0.25);
+			int bmpY = (int) (getY() - bmpSmoke.getHeight() * 0.3);
 
 			Paint paintSmoke = new Paint();
 			currentAlpha = currentAlpha + incAlpha;
