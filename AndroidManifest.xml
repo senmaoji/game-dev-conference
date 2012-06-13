@@ -19,7 +19,6 @@
             android:name="net.programaciondevideojuegos.game01.activities.SplashScene"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,49 +29,41 @@
         <activity
             android:name="net.programaciondevideojuegos.game01.activities.MenuScene"
             android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="net.programaciondevideojuegos.game01.activities.GameScene"
             android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="net.programaciondevideojuegos.game01.activities.ScoreScene"
             android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="net.programaciondevideojuegos.game01.activities.tabs.EasyTab"
             android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="net.programaciondevideojuegos.game01.activities.tabs.NormalTab"
             android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="net.programaciondevideojuegos.game01.activities.tabs.HardTab"
             android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="net.programaciondevideojuegos.game01.activities.PreferenceScene"
             android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.AboutMeScene"
             android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait" >
         </activity>
     </application>
