@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.programaciondevideojuegos.game01.objectsv1.Banana;
-import net.programaciondevideojuegos.game01.objectsv1.Mario;
+import net.programaciondevideojuegos.game01.objectsv1.Player;
 import net.programaciondevideojuegos.game01.utils.Assets;
 import net.programaciondevideojuegos.game01.utils.Util;
 import android.content.Context;
@@ -22,10 +22,13 @@ public class BananaManager {
 		listBananas = new ArrayList<Banana>();
 		speed = Assets.BANANA_SPEED;
 		intervalBananas = Assets.BANANA_INTERVAL;
-		Bitmap bmp = Util.decodeBitmap(context.getResources(), Assets.asset_banana);
+		Bitmap bmp = Util.decodeBitmap(context.getResources(),
+				Assets.asset_banana);
+
+		posX = Util.getRandomNumber(0, Assets.DEFAULT_WIDTH - bmp.getWidth());
 		for (int i = 0; i < Assets.MAX_BANANAS; i++) {
-			posX = Util.getRandomNumber(0,
-					Assets.DEFAULT_WIDTH - bmp.getWidth());
+			if (i > 0)
+				setNewXPosition(i - 1);
 			Banana banana = new Banana(bmp, posX, posY);
 			posY += bmp.getHeight() * intervalBananas;
 			listBananas.add(banana);
@@ -45,27 +48,39 @@ public class BananaManager {
 			for (int i = 0; i < listBananas.size(); i++) {
 				listBananas.get(i).move(0, -speed);
 				if (listBananas.get(i).getY() < -listBananas.get(i).getHeight()) {
-					float lastY = getYBananaInMap()
+					int last = getLastBananaInMap();
+					float lastY = listBananas.get(last).getY()
 							+ listBananas.get(i).getHeight() * intervalBananas;
-					listBananas.get(i).setX(
-							Util.getRandomNumber(0, Assets.DEFAULT_WIDTH
-									- listBananas.get(i).getWidth()));
+					setNewXPosition(last);
+					listBananas.get(i).setX(posX);
 					listBananas.get(i).setY(lastY);
 				}
 			}
 		}
 	}
 
-	private float getYBananaInMap() {
+	private int getLastBananaInMap() {
+		int search = -1;
 		if (listBananas != null && !listBananas.isEmpty()) {
 			float max = 0;
 			for (int i = 0; i < listBananas.size(); i++) {
-				if (listBananas.get(i).getY() > max)
+				if (listBananas.get(i).getY() > max) {
 					max = listBananas.get(i).getY();
+					search = i;
+				}
 			}
-			return max;
 		}
-		return 0.0f;
+		return search;
+	}
+
+	private void setNewXPosition(int n) {
+		if (listBananas.get(n).getX() + listBananas.get(n).getWidth() / 2 < Assets.DEFAULT_WIDTH / 2) {
+			posX = Util.getRandomNumber(Assets.DEFAULT_WIDTH / 2
+					+ listBananas.get(n).getWidth(), Assets.DEFAULT_WIDTH
+					- listBananas.get(n).getWidth());
+		} else {
+			posX = Util.getRandomNumber(0, Assets.DEFAULT_WIDTH / 2);
+		}
 	}
 
 	public void clear() {
@@ -74,7 +89,7 @@ public class BananaManager {
 		listBananas = null;
 	}
 
-	public boolean collidesWithMario(Mario mario) {
+	public boolean collidesWithMario(Player mario) {
 		if (listBananas != null && !listBananas.isEmpty()) {
 			for (int i = 0; i < listBananas.size(); i++) {
 				if (listBananas.get(i).isCollide(mario)) {

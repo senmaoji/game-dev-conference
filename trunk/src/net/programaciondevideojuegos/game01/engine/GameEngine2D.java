@@ -3,10 +3,13 @@ package net.programaciondevideojuegos.game01.engine;
 import net.programaciondevideojuegos.game01.R;
 import net.programaciondevideojuegos.game01.activities.GameScene;
 import net.programaciondevideojuegos.game01.objectsv1.Lights;
-import net.programaciondevideojuegos.game01.objectsv1.Mario;
+import net.programaciondevideojuegos.game01.objectsv1.Player;
+import net.programaciondevideojuegos.game01.objectsv1.Turtle;
 import net.programaciondevideojuegos.game01.objectsv1.manager.BananaManager;
 import net.programaciondevideojuegos.game01.objectsv1.manager.HoleManager;
+import net.programaciondevideojuegos.game01.objectsv1.manager.TrackManager;
 import net.programaciondevideojuegos.game01.utils.Assets;
+import net.programaciondevideojuegos.game01.utils.SoundManager;
 import net.programaciondevideojuegos.game01.utils.Util;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -20,12 +23,14 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 
 	private final long START_IN = 3000L;
 	private byte bucle = 1, MAX_BUCLE = 3;
-	private Mario mario = null;
+	private Player mario = null;
 	private Context context = null;
 	private GameThread thread = null;
 	private Bitmap background = null;
 	private BananaManager bananaManager = null;
 	private HoleManager holeManager = null;
+	private TrackManager trackManager = null;
+	private Turtle turtle = null;
 	private Lights lights = null;
 	private long currentTime = 0;
 	private boolean isReady = false;
@@ -82,10 +87,14 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 
 		bmp = Util.decodeBitmap(context.getResources(), character);
 
-		mario = new Mario(bmp, (Assets.DEFAULT_WIDTH - bmp.getWidth()) / 2, 50);
+		mario = new Player(bmp, (Assets.DEFAULT_WIDTH - bmp.getWidth()) / 2,
+				50, context);
 
 		bananaManager = new BananaManager(context);
 		holeManager = new HoleManager(context);
+		turtle = new Turtle(context);
+		trackManager = new TrackManager();
+
 		lights = new Lights(context, Assets.asset_lights);
 
 		background = Util.decodeBitmap(context.getResources(),
@@ -97,25 +106,33 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 
 		if (!isReady && currentTime > 0
 				&& System.currentTimeMillis() - currentTime > START_IN) {
+			SoundManager.playSFX(context, Assets.sound_startgame);
 			((GameScene) context).startVibration(250);
 			isReady = true;
 		}
 
-		if (isReady) {
+		if (isReady && mario.isAlive()) {
+
+			if (trackManager != null) {
+				trackManager.update();
+			}
+
 			if (Assets.SCORE % Assets.SCORE_FOR_NEXT_LEVEL == 0
-					&& bananaManager != null && holeManager != null) {
+					&& bananaManager != null && holeManager != null
+					&& trackManager != null) {
 				Assets.SCORE++;
 				bananaManager.incrementSpeed();
 				holeManager.incrementSpeed();
+				trackManager.incrementSpeed();
 			}
 
-			if (bucle % MAX_BUCLE == 0 && mario != null && mario.isAlive()) {
+			if (bucle % MAX_BUCLE == 0 && mario != null) {
 				Assets.SCORE++;
 				bucle = 0;
 			}
 			bucle++;
 
-			if (bananaManager != null && mario != null && mario.isAlive()) {
+			if (bananaManager != null && mario != null) {
 				bananaManager.update();
 				if (bananaManager.collidesWithMario(mario)) {
 					mario.setAlive(false);
@@ -123,13 +140,22 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 				}
 			}
 
-			if (holeManager != null && mario != null && mario.isAlive()) {
+			if (holeManager != null && mario != null) {
 				holeManager.update();
 				if (holeManager.collidesWithMario(mario)) {
 					mario.setAlive(false);
 					((GameScene) context).runDialog();
 				}
 			}
+
+			if (turtle != null && mario != null) {
+				turtle.update();
+				if (turtle.collidesWithMario(mario)) {
+					mario.setAlive(false);
+					((GameScene) context).runDialog();
+				}
+			}
+
 		}
 
 	}
@@ -144,6 +170,9 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 		if (background != null)
 			canvas.drawBitmap(background, 0, 0, null);
 
+		if (trackManager != null)
+			trackManager.onDraw(canvas);
+
 		if (mario != null)
 			mario.onDraw(canvas, null);
 
@@ -152,6 +181,9 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 
 		if (bananaManager != null)
 			bananaManager.onDraw(canvas, null);
+
+		if (turtle != null)
+			turtle.onDraw(canvas);
 
 		if (lights != null && !isReady)
 			lights.onDraw(canvas, null);
@@ -184,11 +216,22 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 			holeManager.clear();
 		holeManager = null;
 
+		if (trackManager != null)
+			trackManager.clear();
+		trackManager = null;
+
+		if (mario != null)
+			mario.clear();
 		mario = null;
+
+		if (turtle != null)
+			turtle.clear();
+		turtle = null;
+
 		lights = null;
 	}
 
-	public Mario getMario() {
+	public Player getMario() {
 		return mario;
 	}
 

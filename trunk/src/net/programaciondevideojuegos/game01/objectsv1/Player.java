@@ -2,17 +2,23 @@ package net.programaciondevideojuegos.game01.objectsv1;
 
 import net.programaciondevideojuegos.game01.utils.Assets;
 import net.programaciondevideojuegos.game01.utils.Sprite2D;
+import net.programaciondevideojuegos.game01.utils.Util;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-public class Mario extends Sprite2D {
+public class Player extends Sprite2D {
 
 	private boolean isAlive;
+	private Bitmap bmpSmoke = null;
+	private int currentAlpha = 0, incAlpha = 10;
 
-	public Mario(Bitmap bitmap, float x, float y) {
+	public Player(Bitmap bitmap, float x, float y, Context context) {
 		super(bitmap, x, y);
 		isAlive = true;
+		bmpSmoke = Util
+				.decodeBitmap(context.getResources(), Assets.asset_smoke);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -35,11 +41,25 @@ public class Mario extends Sprite2D {
 	@Override
 	public void onDraw(Canvas canvas, Paint paint) {
 		// TODO Auto-generated method stub
+
+		if (bmpSmoke != null && isAlive) {
+			int bmpX = (int) (getX() - getWidth() * 0.3);
+			int bmpY = (int) (getY() - getHeight() * 0.4);
+
+			Paint paintSmoke = new Paint();
+			currentAlpha = currentAlpha + incAlpha;
+			if (currentAlpha > 255) {
+				currentAlpha = 255;
+				incAlpha = -10;
+			} else if (currentAlpha < 0) {
+				currentAlpha = 0;
+				incAlpha = 10;
+			}
+			paintSmoke.setAlpha(currentAlpha);
+			canvas.drawBitmap(bmpSmoke, bmpX, bmpY, paintSmoke);
+		}
+
 		super.onDraw(canvas, paint);
-		/*
-		 * Paint p = new Paint(); p.setARGB(128, 0, 255, 0);
-		 * canvas.drawRect(getBounds(), p);
-		 */
 	}
 
 	public boolean isAlive() {
@@ -48,6 +68,12 @@ public class Mario extends Sprite2D {
 
 	public void setAlive(boolean isAlive) {
 		this.isAlive = isAlive;
+	}
+
+	public void clear() {
+		if (bmpSmoke != null && !bmpSmoke.isRecycled())
+			bmpSmoke.recycle();
+		bmpSmoke = null;
 	}
 
 }
