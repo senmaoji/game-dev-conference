@@ -6,7 +6,7 @@ import net.programaciondevideojuegos.game01.objectsv1.Lights;
 import net.programaciondevideojuegos.game01.objectsv1.Player;
 import net.programaciondevideojuegos.game01.objectsv1.Turtle;
 import net.programaciondevideojuegos.game01.objectsv1.manager.BananaManager;
-import net.programaciondevideojuegos.game01.objectsv1.manager.HoleManager;
+import net.programaciondevideojuegos.game01.objectsv1.manager.RockManager;
 import net.programaciondevideojuegos.game01.objectsv1.manager.TrackManager;
 import net.programaciondevideojuegos.game01.utils.Assets;
 import net.programaciondevideojuegos.game01.utils.SoundManager;
@@ -28,7 +28,7 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 	private GameThread thread = null;
 	private Bitmap background = null;
 	private BananaManager bananaManager = null;
-	private HoleManager holeManager = null;
+	private RockManager rockManager = null;
 	private TrackManager trackManager = null;
 	private Turtle turtle = null;
 	private Lights lights = null;
@@ -93,7 +93,7 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 				50, context);
 
 		bananaManager = new BananaManager(context);
-		holeManager = new HoleManager(context);
+		rockManager = new RockManager(context);
 		turtle = new Turtle(context);
 		trackManager = new TrackManager();
 
@@ -120,11 +120,11 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 			}
 
 			if (Assets.SCORE % Assets.SCORE_FOR_NEXT_LEVEL == 0
-					&& bananaManager != null && holeManager != null
+					&& bananaManager != null && rockManager != null
 					&& trackManager != null && turtle != null) {
 				Assets.SCORE++;
 				bananaManager.incrementSpeed();
-				holeManager.incrementSpeed();
+				rockManager.incrementSpeed();
 				trackManager.incrementSpeed();
 				turtle.incrementSpeed();
 			}
@@ -143,9 +143,9 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 				}
 			}
 
-			if (holeManager != null && mario != null) {
-				holeManager.update();
-				if (holeManager.collidesWithMario(mario)) {
+			if (rockManager != null && mario != null) {
+				rockManager.update();
+				if (rockManager.collidesWithMario(mario)) {
 					mario.setAlive(false);
 					((GameScene) context).runDialog();
 				}
@@ -179,8 +179,8 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 		if (mario != null)
 			mario.onDraw(canvas, null);
 
-		if (holeManager != null)
-			holeManager.onDraw(canvas, null);
+		if (rockManager != null)
+			rockManager.onDraw(canvas, null);
 
 		if (bananaManager != null)
 			bananaManager.onDraw(canvas, null);
@@ -215,9 +215,9 @@ public class GameEngine2D extends SurfaceView implements SurfaceHolder.Callback 
 			bananaManager.clear();
 		bananaManager = null;
 
-		if (holeManager != null)
-			holeManager.clear();
-		holeManager = null;
+		if (rockManager != null)
+			rockManager.clear();
+		rockManager = null;
 
 		if (trackManager != null)
 			trackManager.clear();
