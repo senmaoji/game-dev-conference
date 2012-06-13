@@ -16,7 +16,7 @@ public class Turtle {
 	private boolean isTurtleInAction = false;
 	private byte turtleInAction = 1; // 0 = greenTurtle; 1 = Red turtle is
 										// Cyclic
-	private final int speedGreenY = -10, speedRedY = -4;
+	private final int speedGreenY = -7, speedRedY = -4;
 	private int speedX = 10;
 	private Context context = null;
 
@@ -66,7 +66,7 @@ public class Turtle {
 				}
 			} else {
 				redTurtle.move(speedX, speedRedY);
-				if (redTurtle.getY() < -redTurtle.getHeight()) {
+				if (redTurtle.getY() < 0) {
 					isTurtleInAction = false;
 					currentTime = System.currentTimeMillis();
 				} else {
