@@ -13,7 +13,8 @@
 
     <application
         android:icon="@drawable/icon"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         <activity
             android:name="net.programaciondevideojuegos.game01.activities.SplashScene"
             android:configChanges="keyboardHidden|orientation"
