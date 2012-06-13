@@ -16,8 +16,8 @@ public class Turtle {
 	private boolean isTurtleInAction = false;
 	private byte turtleInAction = 1; // 0 = greenTurtle; 1 = Red turtle is
 										// Cyclic
-	private int speedGreenY = -5, speedRedY = -2;
-	private int speedX = 7;
+	private int speedGreenY = -(Assets.BANANA_SPEED + 3), speedRedY = -3;
+	private int speedX = 8, currentSpeedX = speedX;
 	private Context context = null;
 
 	public Turtle(Context context) {
@@ -71,15 +71,15 @@ public class Turtle {
 					currentTime = System.currentTimeMillis();
 				} else {
 					if (redTurtle.getX() < 0) {
+						speedX = currentSpeedX;
 						SoundManager.playSFX(context, Assets.sound_hit);
 						redTurtle.setX(0);
-						speedX = 10;
 					} else if (redTurtle.getX() > Assets.DEFAULT_WIDTH
 							- redTurtle.getWidth()) {
+						speedX = -currentSpeedX;
 						SoundManager.playSFX(context, Assets.sound_hit);
 						redTurtle.setX(Assets.DEFAULT_WIDTH
 								- redTurtle.getWidth());
-						speedX = -10;
 					}
 				}
 			}
@@ -104,8 +104,12 @@ public class Turtle {
 
 	public void incrementSpeed() {
 		speedGreenY--;
-		speedRedY--;
-		speedX++;
+		currentSpeedX++;
+		if (speedX > 0) {
+			speedX = currentSpeedX;
+		} else {
+			speedX = -currentSpeedX;
+		}
 	}
 
 }
