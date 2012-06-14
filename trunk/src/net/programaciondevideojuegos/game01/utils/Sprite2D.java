@@ -12,7 +12,7 @@ public class Sprite2D {
 	private Matrix matrix = null;
 	private boolean isVisible = true;
 	private float x = 0, y = 0, degrees = 0;
-	private int width = 0, height = 0, pivotX = 0, pivotY = 0;
+	private float width = 0, height = 0, pivotX = 0, pivotY = 0;
 
 	public Sprite2D(Bitmap bitmap, float x, float y) {
 		this.bitmap = bitmap;
@@ -31,8 +31,9 @@ public class Sprite2D {
 		if (bitmap != null && isVisible()) {
 			matrix.reset();
 			matrix.postTranslate(getX(), getY());
-			matrix.postRotate(getDegrees(), getX() + pivotX, getY() + pivotY);
-			canvas.drawBitmap(getBitmap(), matrix, paint);
+			matrix.postRotate(getDegrees(), getX() + getPivotY(), getY()
+					+ getPivotX());
+			canvas.drawBitmap(getBitmap(), getMatrix(), paint);
 		}
 	}
 
@@ -88,19 +89,35 @@ public class Sprite2D {
 		this.bitmap = bitmap;
 	}
 
-	public int getWidth() {
+	public float getWidth() {
 		return width;
 	}
 
-	public void setWidth(int width) {
+	public void setWidth(float width) {
 		this.width = width;
 	}
 
-	public int getHeight() {
+	public Matrix getMatrix() {
+		return matrix;
+	}
+
+	public void setMatrix(Matrix matrix) {
+		this.matrix = matrix;
+	}
+
+	public void setPivotX(float pivotX) {
+		this.pivotX = pivotX;
+	}
+
+	public void setPivotY(float pivotY) {
+		this.pivotY = pivotY;
+	}
+
+	public float getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(float height) {
 		this.height = height;
 	}
 
@@ -112,7 +129,7 @@ public class Sprite2D {
 		this.degrees = degrees;
 	}
 
-	public int getPivotX() {
+	public float getPivotX() {
 		return pivotX;
 	}
 
@@ -120,7 +137,7 @@ public class Sprite2D {
 		this.pivotX = pivotX;
 	}
 
-	public int getPivotY() {
+	public float getPivotY() {
 		return pivotY;
 	}
 

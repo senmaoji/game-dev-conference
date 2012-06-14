@@ -60,7 +60,7 @@ public class Util {
 		return networkInformation != null;
 	}
 
-	public static float getRandomNumber(int start, int end) {
+	public static float getRandomNumber(float start, float end) {
 		Random random = new Random();
 		float value = (random.nextFloat() * (end - start + 1) + start);
 		return value;

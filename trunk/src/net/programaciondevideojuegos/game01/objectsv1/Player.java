@@ -65,6 +65,7 @@ public class Player extends Sprite2D {
 		 * Paint p = new Paint(); p.setARGB(128, 0, 255, 0);
 		 * canvas.drawRect(getBounds(), p);
 		 */
+
 	}
 
 	@Override
